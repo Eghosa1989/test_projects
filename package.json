@@ -1,5 +1,7 @@
 {
   "name": "test_projects",
+
+    
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -194,7 +196,7 @@
     "jest": "^30.1.3"
   },
   "scripts": {
-    "test": "jests"
+    "test": "jest --coverage"
   },
   "keywords": [],
   "author": "",
