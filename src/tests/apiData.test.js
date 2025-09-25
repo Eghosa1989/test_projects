@@ -1,8 +1,9 @@
-//import the function to be tested
-const { fetchData } = require('../functions/apiData.js');
 
 //Mock this global fetch function
 global.fetch = jest.fn();
+
+//import the function to be tested
+const { fetchData } = require('../functions/apiData.js');
 
 //test suite
 describe('fetchData',  () => {
@@ -36,6 +37,6 @@ describe('fetchData',  () => {
         fetch.mockResolvedValueOnce({ok: false});
 
         //Assert
-        await expect(fetchData('https://jsonplaceholder.typicode.com/todos/1').rejects.toThrow('There was a networking error.'))
+        await expect(fetchData('https://jsonplaceholder.typicode.com/todos/1')).rejects.toThrow('There was a networking error.');
     });
 });
