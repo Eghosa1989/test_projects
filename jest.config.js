@@ -1,5 +1,5 @@
 module.exports = {
-    twstEnvironment: 'node',
+    testEnvironment: 'node',
     collectCoverage: true,
     coverageDirectory: 'coverage',
     verbose:true,

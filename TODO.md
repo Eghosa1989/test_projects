@@ -1,0 +1,4 @@
+- [x] Fix userModel.js export issue by changing to const createUser and proper module.exports
+- [x] Update userModel.test.js to make test async, await createUser, and use correct field names in mock
+- [x] Fix jest.config.js typo: twstEnvironment -> testEnvironment
+- [x] Run tests to verify fixes

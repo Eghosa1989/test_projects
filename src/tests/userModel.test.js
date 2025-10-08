@@ -1,22 +1,33 @@
-const mongoos = require('mongoose');
+const mongoose = require('mongoose');
+const {createUser, User} = require('../functions/userModel.js');
 
-//import the function to be tested
-const { createUser } = require('../functions/userModel.js');
-const { beforeEach } = require('jest-circus');
 
 //test suite
 describe('User Model Testing', () => {
-    ///AAA pattern- Arrange, Act, Assert
-    //jest hooks
-    beforeEach(() =>{
+    ///AAA Pattern - Arrange, Act, Assert
+    //jest hook
+    beforeEach(()=>{
         jest.clearAllMocks();
     });
-    
-    //object literal
-    const mockSave = {
-        name: "Jeffrey",
-        email: "jeffrey.example@gmail.com",
-        password: "password123",
-        age: 30,
+
+    it('should create a new user', async () => {
+
+    //arrange by setting up mock object literal
+    const mockUser = {
+        firstName: "Todd",
+        email: "josh.nash@example.com",
+        password: "password",
+        age: 100
     }
+
+    //Action
+    jest.spyOn(User.prototype, 'save').mockResolvedValue(mockUser)
+    var result = await createUser('Todd', 'josh.nash@example.com', 'password', 100);
+
+    //Assert
+    expect(result).toEqual(expect.objectContaining(mockUser));
+    expect(User.prototype.save).toHaveBeenCalledTimes(1);
+
+});
+
 });
