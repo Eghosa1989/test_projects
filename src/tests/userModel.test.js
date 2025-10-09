@@ -14,15 +14,15 @@ describe('User Model Testing', () => {
 
     //arrange by setting up mock object literal
     const mockUser = {
-        firstName: "Todd",
-        email: "josh.nash@example.com",
+        firstName: "Jeffrey",
+        email: "jeffrey.elaiho@example.com",
         password: "password",
         age: 100
     }
 
     //Action
     jest.spyOn(User.prototype, 'save').mockResolvedValue(mockUser)
-    var result = await createUser('Todd', 'josh.nash@example.com', 'password', 100);
+    var result = await createUser('Jeffrey', 'jeffrey.elaiho@example.com', 'password', 100);
 
     //Assert
     expect(result).toEqual(expect.objectContaining(mockUser));
